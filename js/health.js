@@ -1,7 +1,7 @@
 var apiKey = require('./../.env').apiKey;
 
 Health = function(){
-}
+};
 
 Health.prototype.getDoctor = function(condition){
 
@@ -9,22 +9,22 @@ Health.prototype.getDoctor = function(condition){
     .then(function(response) {
       for (i = 0; i<response.data.length; i++) {
         //profile photo
-        $('#result').append("<div class='doc-section'>" + "<img class='profile-pic' src=" + response.data[i].profile.image_url + "</img></div>");
+        $('#result').append("<div class='doc-section'>" + "<img class='profile-pic' src=" + response.data[i].profile.image_url + "></div>");
 
         //name
-        $('#result').append("<div class='profile-info'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "<p>" + response.data[i].profile.specialties.description + "</p>" +"</div>");
+        $('#result').append("<div class='profile-info'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "<h5>" + response.data[i].profile.title + "</h5>" + "<p>" + response.data[i].specialties.name + "</p>" + "</div>");
 
         //title
         $('#result').append("<div class='doc-section'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "</div>");
 
-        //specialty
-        $('#result').append("<div class='doc-section'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "</div>");
-
-        //bio
-        $('#result').append("<div class='doc-section'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "</div>");
-
-        //street
-        $('#result').append("<div class='doc-section'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "</div>");
+        // //specialty
+        // $('#result').append("<div class='doc-section'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "</div>");
+        //
+        // //bio
+        // $('#result').append("<div class='doc-section'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "</div>");
+        //
+        // //street
+        // $('#result').append("<div class='doc-section'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "</div>");
 
 
       }
