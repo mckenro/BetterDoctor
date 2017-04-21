@@ -1,22 +1,15 @@
-var Calculator = require('./../js/pingpong.js').calculatorModule;
+var Health = require('./../js/health.js').healthModule;
 
 $(document).ready(function(){
-  $('form#pingpong-form').submit(function(event){
+  var healthObject = new Health();
+  $('form#health-form').submit(function(event){
     event.preventDefault();
-    var goal = parseInt($('input#goal').val());
-    var simpleCalculator = new Calculator ("hot pink");
-    var output = simpleCalculator.pingpong(goal);
-    output.forEach(function(element){
-      $('#solution').append("<li>" + element + "</li>");
-    });
+    var condition = $('input#condition').val();
+    // var location = $('input#location').val();
+    // var zipcode = parseInt(location);
+    var error = "Sorry, we couldn't find a good match.";
+    healthObject.getDoctor(condition);
   });
 });
 
-$(document).ready(function(){
-  $('form#signup').submit(function(event){
-    event.preventDefault();
-    var email = $('#email').val();
-    $('form#signup').hide();
-    $('#solution').prepend('<p>Thank you, ' + email + ' has been added to our list!</p>');
-  });
-});
+// https://api.betterdoctor.com/2016-03-01/doctors?query=dermatology&location=98101&skip=0&limit=100&user_key=5347729089b5253ce372a9693a75cd33

@@ -1,21 +1,20 @@
-function Calculator(skinName){
-  this.skin = skinName;
+var apiKey = require('./../.env').apiKey;
+
+Health = function(){
 }
 
-Calculator.prototype.pingpong = function(goal){
-  var output = [];
-  for(var i=1; i <= goal; i++){
-    if(i%15 === 0){
-      output.push("ping-pong");
-    } else if (i%5 === 0){
-      output.push("pong");
-    } else if(i%3 === 0){
-      output.push("ping");
-    } else {
-      output.push(i);
-    }
-  }
-  return output;
+Health.prototype.getDoctor = function(condition){
+
+  $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ condition+'&location=47.6204%2C-122.3508%2C%205&user_location=47.6204%2C-122.3493&skip=0&limit=100&user_key=' + apiKey)
+    .then(function(response) {
+      for (i = 0; i<response.data.length; i++) {
+        console.log(response.data[i].profile.first_name + " " + response.data[i].profile.last_name)
+      }
+    })
+    .fail(function(error) {
+      $('.result').text(error.responseJSON.message);
+    });
+
 };
 
-exports.calculatorModule = Calculator;
+exports.healthModule = Health;
