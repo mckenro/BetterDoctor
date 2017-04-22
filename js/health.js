@@ -1,14 +1,23 @@
 var apiKey = require('./../.env').apiKey;
 
-Health = function(){
+Health = function(image, first_name, last_name, title, city, state, zip, phone){
+  this.image = image;
+  this.first_name = first_name;
+  this.last_name = last_name;
+  this.title = title;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
+  this.phone = phone;
 };
 
-Health.prototype.getDoctor = function(condition){
+Health.prototype.getDoctor = function(condition, displayResults){
 
-  $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ condition+'&location=47.6204%2C-122.3508%2C%205&user_location=47.6204%2C-122.3493&skip=0&limit=100&user_key=' + apiKey)
+  $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ condition+'&location=47.6204%2C-122.3508%2C%205&user_location=47.6204%2C-122.3493&skip=0&limit=40&user_key=' + apiKey)
     .then(function(response) {
       for (i = 0; i<response.data.length; i++) {
-        $('#result').append("<div class='profile-card'>" + "<img class='profile-pic' src=" + response.data[i].profile.image_url + ">" + "<div class='profile-info'>" + "<h3>" + response.data[i].profile.first_name + " " + response.data[i].profile.last_name + "</h3>" + "<h5>" + response.data[i].profile.title + "</h5>" + "<p>" + response.data[i].practices[0].visit_address.city + ", " + response.data[i].practices[0].visit_address.state + " " + response.data[i].practices[0].visit_address.zip + "</p>" + "<p class='space'>phone: " + "<span class='phone'>" + response.data[i].practices[0].phones[0].number + "</span></p>" +"</div>" + "</div>");
+        var results = new Health (image = response.data[i].profile.image_url, response.data[i].profile.first_name,  response.data[i].profile.last_name,  response.data[i].profile.title, response.data[i].practices[0].visit_address.city, response.data[i].practices[0].visit_address.state, response.data[i].practices[0].visit_address.zip, response.data[i].practices[0].phones[0].number);
+        displayResults(results);
       }
 
     }).fail(function(error) {
