@@ -2,6 +2,7 @@
 $bd-blue: #54b4d2;
 $bd-magenta: #bb3794;
 $bd-magenta-dk: #8c2577;
+$brightblue: #1cc2ff;
 $trans-white: rgba(255, 255, 255, 0.7);
 
 body {
@@ -10,7 +11,8 @@ body {
 
 .profile-card {
   display: block;
-  background: #f2f2f2;
+  background: $trans-white;
+  border: 1px solid $bd-blue;
   padding: 10px;
   margin-bottom: 20px;
   margin-right: 20px;
@@ -28,7 +30,7 @@ body {
 }
 
 .phone {
-  color: #1cc2ff;
+  color: $brightblue;
 }
 
 .content {
@@ -57,7 +59,7 @@ body {
 }
 
 .logo {
-  margin-top: 12px;
+  margin-top: 28px;
   width: 340px;
 }
 
