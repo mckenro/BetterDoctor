@@ -10,6 +10,9 @@ _Using this application, a user will be able to search for doctors based on the 
 
 ## Setup/Installation Requirements
 * _Download or clone project files_
+* _Sign up for a BetterDoctor account to generate your own API key_
+* _Create a file called .env in the root directory_
+* _Add the following to your .env file-- exports.apiKey = "your-API-Key";
 * _Run the following in terminal_
     * _npm install_
     * _bower install_

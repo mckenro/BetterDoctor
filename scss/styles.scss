@@ -1,8 +1,19 @@
+/* VARIABLES */
+$bd-blue: #54b4d2;
+$bd-magenta: #bb3794;
+$bd-magenta-dk: #8c2577;
+$trans-white: rgba(255, 255, 255, 0.7);
+
+body {
+  background: $bd-blue;
+}
+
 .profile-card {
   display: block;
   background: #f2f2f2;
   padding: 10px;
-  margin: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
   border-radius: 10px;
 }
 
@@ -13,10 +24,76 @@
 
 .profile-info {
   margin-top: -10px;
-  width: 100%;
   padding-left: 140px;
 }
 
 .phone {
   color: #1cc2ff;
+}
+
+.content {
+  width: 960px;
+  background: $trans-white;
+}
+
+
+#result {
+  padding-top: 20px;
+}
+
+.header {
+  color: #fff;
+  margin-top: -20px;
+  margin-bottom: 30px;
+  padding: 30px;
+  height: 400px;
+  background-image: url('/img/homepage-header-400.jpg');
+  background-size: 960px 400px;
+  background-repeat: no-repeat;
+}
+
+.header h2 {
+  font-weight: 100;
+}
+
+.logo {
+  margin-top: 12px;
+  width: 340px;
+}
+
+.tag {
+  margin-top: 40px;
+  width: 600px;
+}
+
+.form-group label {
+  font-weight: 400;
+}
+
+.form-control {
+  margin-top: -12px;
+}
+
+.btn {
+    padding: 8px 14px;
+    border: 0 none;
+    letter-spacing: 1px;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-danger {
+    background: $bd-magenta;
+    color: #ffffff;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+    background: $bd-magenta-dk;
+}
+
+.btn-danger:active, .btn-danger.active {
+    background: #007299;
+    box-shadow: none;
 }
